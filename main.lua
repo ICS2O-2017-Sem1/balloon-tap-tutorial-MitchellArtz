@@ -26,9 +26,11 @@ physics.start()
  
 physics.addBody( platform, "static" )
 physics.addBody( balloon, "dynamic", { radius=50, bounce=0.3 } )
-     balloon:applyLinearImpulse( 0, -0.75, balloon.x, balloon.y )
+     
 local function pushBalloon()
-tapCount = tapCount
+balloon:applyLinearImpulse( 0, -0.75, balloon.x, balloon.y )
+tapCount = tapCount + 1
+tapText.text = tapCount
 end
 
 balloon:addEventListener( "tap", pushBalloon)
